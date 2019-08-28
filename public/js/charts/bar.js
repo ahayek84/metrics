@@ -1,4 +1,4 @@
-alert(my_viz)
+//alert(my_viz)
 var ctx = document.getElementById('chartbar'+ my_viz).getContext('2d');
 var barChart= new Chart(ctx, {
     type: 'bar',

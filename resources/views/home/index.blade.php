@@ -5,30 +5,25 @@
         <div class="col-md-2" style="text-align: center; align-content: center;">
     <!-- Sidebar -->
         <nav id="sidebar">
-                @if( Request::get('fromdate') == null || Request::get('fromdate') == '')
-                 $param = 0
-                @else
-                  $param =   Request::get('fromdate')
-                @endif
                 <form action="/" method="POST" style="padding-top: 55px;" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-group row">
                         <div class="col-sm-1">
                             <select name="fromdate" style="height: 50px; width: 150px">
-                                <option value="01-01-2019" selected>01-01-2019</option>
-                                <option value="01-02-2019">01-02-2019</option>
-                                <option value="01-03-2019">01-03-2019</option>
-                                <option value="01-04-2019">01-04-2019</option>
+                                <option value="01-01-2019" {{ ($data['fromdate'] == '01-01-2019')? "selected" : "" }} >01-01-2019</option>
+                                <option value="01-02-2019" {{ ($data['fromdate'] == '01-02-2019')? "selected" : "" }}>01-02-2019</option>
+                                <option value="01-03-2019" {{ ($data['fromdate'] == '01-03-2019')? "selected" : "" }}>01-03-2019</option>
+                                <option value="01-04-2019" {{ ($data['fromdate'] == '01-04-2019')? "selected" : "" }}>01-04-2019</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-1">
                                 <select name="todate" style="height: 50px; width: 150px">
-                                    <option value="01-01-2019" selected>01-01-2019</option>
-                                    <option value="01-02-2019">01-02-2019</option>
-                                    <option value="01-03-2019">01-03-2019</option>
-                                    <option value="01-04-2019">01-04-2019</option>
+                                    <option value="01-01-2019" {{ ($data['todate'] == '01-01-2019')? "selected" : "" }}>01-01-2019</option>
+                                    <option value="01-02-2019" {{ ($data['todate'] == '01-02-2019')? "selected" : "" }}>01-02-2019</option>
+                                    <option value="01-03-2019" {{ ($data['todate'] == '01-03-2019')? "selected" : "" }}>01-03-2019</option>
+                                    <option value="01-04-2019"{{ ($data['todate'] == '01-04-2019')? "selected" : "" }}>01-04-2019</option>
                                 </select>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-alert(my_viz2)
+//alert(my_viz2)
 var ctx = document.getElementById('chartline'+ my_viz2).getContext('2d');
 var lineChart= new Chart(ctx, {
     type: 'line',

@@ -13,5 +13,5 @@
 
 
 Route::get('/summary', 'SiteController@summary');
-Route::get('/{fromdate?}/{todate?}', 'SiteController@home');
-Route::post('/{fromdate?}/{todate?}', 'SiteController@home');
+Route::get('/', 'SiteController@home');
+Route::post('/', 'SiteController@home');
