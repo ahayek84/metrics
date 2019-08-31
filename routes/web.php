@@ -15,3 +15,6 @@
 Route::get('/summary', 'SiteController@summary');
 Route::get('/', 'SiteController@home');
 Route::post('/', 'SiteController@home');
+
+Route::get('/bar_chart/{fromdate}/{class}', 'QueriesController@bar_chart');
+

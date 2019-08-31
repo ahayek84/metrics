@@ -9,7 +9,7 @@
                     {{ csrf_field() }}
                     <div class="form-group row">
                         <div class="col-sm-1">
-                            <select name="fromdate" style="height: 50px; width: 150px">
+                            <select id="fromdate" name="fromdate" style="height: 50px; width: 150px">
                                 <option value="01-01-2019" {{ ($data['fromdate'] == '01-01-2019')? "selected" : "" }} >01-01-2019</option>
                                 <option value="01-02-2019" {{ ($data['fromdate'] == '01-02-2019')? "selected" : "" }}>01-02-2019</option>
                                 <option value="01-03-2019" {{ ($data['fromdate'] == '01-03-2019')? "selected" : "" }}>01-03-2019</option>
