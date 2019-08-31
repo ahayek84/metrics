@@ -15,16 +15,15 @@ class SiteController extends Controller
         $metrics =  App\Mertics::whereDate('act_date', ' = ' ,date('Y-m-d', strtotime('01-01-2019')))->get();
 
         ## fill changes
-        if (isset($input['fromdate']) and  isset($input['todate'])) {
+        if (isset($input['fromdate'])) {
             $metrics =  App\Mertics::whereDate('act_date', ' = ' ,date('Y-m-d', strtotime($input['fromdate'])))->get();
-            $data['items_chart'] =  $qrs->bar_chart_items($input['fromdate']);
         }
         $data['metrics'] = $metrics;
         $data['fromdate'] = isset($input['fromdate'])?$input['fromdate'] : '';
         $data['todate'] = isset($input['todate'])?$input['todate'] : '';
 
 
-        //Dd($data);
+        //Dd($input['fromdate']);
         //Session::flash('params', compact('params'));
         return view('home.index', compact('data'));
     }
@@ -33,5 +32,4 @@ class SiteController extends Controller
         return view('home.summary');
     }
 } /// end of controllers
-
 
