@@ -1,34 +1,38 @@
-//alert(my_viz2)
+var my_date1 = document.getElementById('fromdate').value;
+var res = {
+    'labels':['01-01-2019', '01-02-2019', '01-03-2019', '01-04-2019'],
+    'label_data':'Glass',
+    'data':[12, 19, 3, 5, 2, 3],
+    'color':['rgba(255, 99, 132, 0.2)']
+} ;
+
+
+function httpGet(theUrl,my_date, clas )
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl + my_date + '/' + clas, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+res = JSON.parse(httpGet('/line_chart/', my_date1,'item'));
+
 var ctx = document.getElementById('chartline'+ my_viz2).getContext('2d');
 var lineChart= new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
+        labels: res.labels,
+        datasets: res.dataset
     },
     options: {
         responsive: true,
         maintainAspectRatio: false,
+        legend: {
+            display: true,
+            position: 'bottom',
+            labels: {
+                fontColor: 'rgb(255, 99, 132)'
+            }
+        },
         scales: {
             yAxes: [{
                 ticks: {

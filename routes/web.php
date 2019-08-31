@@ -18,3 +18,5 @@ Route::post('/', 'SiteController@home');
 
 Route::get('/bar_chart/{fromdate}/{class}', 'QueriesController@bar_chart');
 
+Route::get('/line_chart/{fromdate}/{class}', 'QueriesController@line_chart');
+
