@@ -15,8 +15,7 @@ class CreateMerticsTable extends Migration
     {   
         Schema::create('mertics', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->dateTime('from_date');
-            $table->dateTime('to_date');
+            $table->dateTime('act_date');
             $table->string('metric_name');
             $table->string('metric_value');
             $table->timestamps();

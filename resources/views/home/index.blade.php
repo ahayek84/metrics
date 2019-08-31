@@ -17,7 +17,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <!--div class="form-group row">
                         <div class="col-sm-1">
                                 <select name="todate" style="height: 50px; width: 150px">
                                     <option value="01-01-2019" {{ ($data['todate'] == '01-01-2019')? "selected" : "" }}>01-01-2019</option>
@@ -26,7 +26,7 @@
                                     <option value="01-04-2019"{{ ($data['todate'] == '01-04-2019')? "selected" : "" }}>01-04-2019</option>
                                 </select>
                         </div>
-                    </div>
+                    </div-->
                     <div class="form-group row">
                         <div class="col-sm-1">
                             <button type="submit" class="btn btn-primary">Refresh</button>
@@ -44,30 +44,17 @@
             </div>
         </div>
         <div class="row" style="margin-top: 10px">
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">1508</h5>
-                        <div class="card-body">Orders</div>
+            @foreach ($data['metrics'] as $metric)
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$metric->metric_name}}</h5>
+                            <div class="card-body">{{$metric->metric_value}}</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">1508</h5>
-                        <div class="card-body">Items</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">3</h5>
-                        <div class="card-body">Channels</div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
         </div>
         <div class="row">
             <div class="col-md-4">
